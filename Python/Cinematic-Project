@@ -1,1 +1,262 @@
+from calendar import c
+import random
+import string
+
+class Filme:
+    def __init__(self, titulo, horario, sala):
+        self.titulo = titulo
+        self.horario = horario
+        self.sala = sala
+        self.poltronas_disponiveis = [[True] * 5 for _ in range(5)]
+
+class Usuario:
+    def __init__(self, username, senha):
+        self.username = username
+        self.senha = senha
+
+class Funcionario(Usuario):
+    def __init__(self, username, senha, cargo):
+        super().__init__(username, senha)
+        self.cargo = cargo
+
+class SistemaCinema:
+    def __init__(self):
+        self.filmes = []
+        self.usuarios = []  # Lista para armazenar os usuários
+        self.funcionarios = []
+        self.administrador = None
+        self.usuario_atual = None
+
+        # Adicionar usuário administrador
+        self.administrador = Funcionario("admin", "adminpass", "Admin")
+
+        # Adicionar usuários
+        self.cadastrar_usuario("Professor", "password")
+        self.cadastrar_usuario("teste2", "password")
+
+        # Adicionar alguns filmes
+        self.cadastrar_filme("Oppenheimer", "15:00", "Sala 1")
+        self.cadastrar_filme("Missao impossivel", "18:30", "Sala 2")
+        self.cadastrar_filme("Interstellar", "21:00", "Sala 3")
+
+    def executar(self):
+        while True:
+            print("Bem-vindo ao CineStesia!")
+            print("1. Fazer Login")
+            print("2. Sair")
+            opcao = input("Escolha uma opcao: ")
+            print() # Quebra de linha 
+
+            if opcao == "1":
+                username = input("Username: ")
+                senha = input("Senha: ")
+                print()  # Quebra de linha 
+
+                if self.fazer_login_admin(username, senha):
+                    self.administrador = self.usuario_atual
+                    self.menu_administrador()
+                elif self.fazer_login(username, senha):
+                    self.menu_usuario()
+                else:
+                    print("Login invalido.")
+                    print() # Quebra de linha 
+            elif opcao == "2":
+                print("Saindo do sistema...")
+                break
+            else:
+                print("Opcao invalida.")
+                print()  # Quebra de linha
+
+    def cadastrar_filme(self, titulo, horario, sala):
+        filme = Filme(titulo, horario, sala)
+        self.filmes.append(filme)
+
+    def cadastrar_usuario(self, username, senha):
+        usuario = Usuario(username, senha)
+        self.usuarios.append(usuario)
+
+    def cadastrar_funcionario(self, username, senha, cargo):
+        funcionario = Funcionario(username, senha, cargo)
+        self.funcionarios.append(funcionario)
+
+    def fazer_login(self, username, senha):
+        for usuario in self.usuarios:
+            if usuario.username == username and usuario.senha == senha:
+                self.usuario_atual = usuario
+                return True
+        return False
+
+    def fazer_login_admin(self, username, senha):
+        if self.administrador and self.administrador.username == username and self.administrador.senha == senha:
+            self.usuario_atual = self.administrador
+            return True
+        return False
+
+    def exibir_filmes(self):
+        for i, filme in enumerate(self.filmes):
+            print(f"{i + 1}. {filme.titulo} - Horario: {filme.horario}, Sala: {filme.sala}")
+
+    def exibir_poltronas(self, filme_idx):
+        filme = self.filmes[filme_idx]
+        print(f"Poltronas disponiveis para o filme '{filme.titulo}':")
+        linhas = ["A", "B", "C", "D", "E"]
+        colunas = ["1", "2", "3", "4", "5"]
+
+        print("    " + " ".join(colunas))  # Exibe os números das colunas
+
+        for linha in range(5):
+            print(f"{linhas[linha]} ", end="")
+            for coluna in range(5):
+                poltrona = filme.poltronas_disponiveis[linha][coluna]
+                if poltrona:
+                    print("O", end=" ")
+                else:
+                    print("X", end=" ")
+            print()
+
+    def executar(self):
+        while True:
+            print("Bem-vindo ao sistema de cinema!\n")
+            print("1. Fazer Login")
+            print("2. Sair")
+            opcao = input("Escolha uma opcao: ")
+            print() # Quebra de linha 
+
+            if opcao == "1":
+                username = input("Username: ")
+                senha = input("Senha: ")
+                print()  # Quebra de linha 
+
+                if self.fazer_login_admin(username, senha):
+                    self.administrador = self.usuario_atual
+                    self.menu_administrador()
+                elif self.fazer_login(username, senha):
+                    self.menu_usuario()
+                else:
+                    print("Login invalido.")
+                    print() # Quebra de linha 
+            elif opcao == "2":
+                print("Saindo do sistema...")
+                break
+            else:
+                print("Opcao invalida.")
+            print()  # Quebra de linha após a opção escolhida
+
+    def menu_usuario(self):
+        while True:
+            print("1. Ver Filmes")
+            print("2. Marcar Poltrona")
+            print("3. Sair")
+            opcao = input("Escolha uma opcao: ")
+            print() # Quebra de linha 
+
+            if opcao == "1":
+                self.exibir_filmes()
+            elif opcao == "2":
+                filme_idx = int(input("Digite o numero do filme: ")) - 1
+                self.exibir_poltronas(filme_idx)
+                linha_str = input("Digite a coluna da poltrona (A a E): ").upper()
+                print() # Quebra de linha 
+                coluna_str = input("Digite o numero da poltrona (1 a 5): ")
+                self.marcar_poltrona(filme_idx, linha_str, coluna_str)
+            elif opcao == "3":
+                self.usuario_atual = None
+                print("Saindo do menu de usuario...")
+                print() # Quebra de linha 
+                break
+            else:
+                print("Opcao invalida.")
+            print() # Quebra de linha
+
+    def menu_administrador(self):
+        while True:
+            print("1. Ver Filmes")
+            print("2. Cadastrar Filme")
+            print("3. Cadastrar Funcionario")
+            print("4. Excluir Funcionario")
+            print("5. Consultar Funcionarios")
+            print("6. Sair")
+            opcao = input("Escolha uma opcao: ")
+            print() # Quebra de linha 
+
+            if opcao == "1":
+                self.exibir_filmes()
+            elif opcao == "2":
+                titulo = input("Digite o titulo do filme: ")
+                horario = input("Digite o horario do filme: ")
+                sala = input("Digite a sala do filme: ")
+                print() # Quebra de linha 
+                self.cadastrar_filme(titulo, horario, sala)
+                print("Filme cadastrado com sucesso!")
+            elif opcao == "3":
+                username = input("Digite o username do funcionario: ")
+                senha = input("Digite a senha do funcionario: ")
+                cargo = input("Digite o cargo do funcionario: ")
+                print() # Quebra de linha 
+                self.cadastrar_funcionario(username, senha, cargo)
+                print("Funcionario cadastrado com sucesso!")
+            elif opcao == "4":
+                username = input("Digite o username do funcionario a ser excluido: ")
+                senha = input("Digite a senha do funcionario: ")
+                print() # Quebra de linha 
+                if self.excluir_funcionario(username, senha):
+                    print("Funcionario excluido com sucesso!")
+                else:
+                    print("Funcionario nao encontrado ou senha incorreta.")
+            elif opcao == "5":
+                self.consultar_funcionarios()
+            elif opcao == "6":
+                self.administrador = None
+                print("Saindo do menu de administrador...")
+                print() # Quebra de linha 
+                break
+            else:
+                print("Opcao invalida.")
+            print()  # Quebra de linha
+
+
+    def excluir_funcionario(self, username, senha):
+        for funcionario in self.funcionarios:
+            if funcionario.username == username and funcionario.senha == senha:
+                self.funcionarios.remove(funcionario)
+                return True
+        return False
+
+    def consultar_funcionarios(self):
+        print("Funcionarios cadastrados:")
+        for funcionario in self.funcionarios:
+            print(f"Username: {funcionario.username}, Cargo: {funcionario.cargo}")
+        input("Pressione Enter para voltar...")
+
+    def marcar_poltrona(self, filme_idx, linha_str, coluna_str):
+        filme = self.filmes[filme_idx]
+        linhas = ["A", "B", "C", "D", "E"]
+        colunas = ["1", "2", "3", "4", "5"]
+        print() # Quebra de linha 
+
+        if linha_str in linhas and coluna_str in colunas:
+            linha = linhas.index(linha_str)
+            coluna = colunas.index(coluna_str)
+    
+            if filme.poltronas_disponiveis[linha][coluna]:
+                filme.poltronas_disponiveis[linha][coluna] = False
+                codigo_reserva = self.gerar_codigo_reserva()
+                print(f"Poltrona marcada com sucesso! Codigo de Reserva: {codigo_reserva}")
+                print() # Quebra de linha 
+            else:
+                print("Poltrona ja esta ocupada. Por favor, selecione outra poltrona.")
+                nova_linha_str = input("Digite a letra da linha da nova poltrona (A a E): ").upper()
+                nova_coluna_str = input("Digite o numero da coluna da nova poltrona (1 a 5): ")
+                self.marcar_poltrona(filme_idx, nova_linha_str, nova_coluna_str)
+                print() # Quebra de linha 
+        else:
+            print("Poltrona invalida. Certifique-se de usar as letras A, B, C, D ou E e os numeros 1, 2, 3, 4 ou 5.")
+
+    def gerar_codigo_reserva(self):
+        caracteres = string.ascii_letters + string.digits
+        codigo = ''.join(random.choice(caracteres) for _ in range(5))
+        return codigo
+
+sistema = SistemaCinema()
+sistema.executar()
 
