@@ -4,7 +4,13 @@
 <img src="https://komarev.com/ghpvc/?username=GuKlinger&style=flat-square&color=blue" alt=""/>
 </div>
 
-  <h5> Hello, my name is Gustavo Klinger!😝 I am a student of technological sciences and my objective is be a developer💻🖱️ I'm studing IT Management at FATEC ARY FOSSEN - Jundiaí. I'm also studing by myself doing some courses online and getting knowledge about programming languages. I would like to work with Python or JavaScript, because they are languages i have more facilities to work with.<br>Ps: An eternal student, because this is my gas.🔥🔥</h5>
+  <h5>Hey there, awesome folks! 🚀 I'm Gustavo Klinger, and I'm on a journey through the captivating realm of technological sciences! 💡 My grand goal? To evolve into a skilled developer extraordinaire! 💻🖱️ Currently, I'm immersing myself in the world of IT Management at the illustrious FATEC ARY FOSSEN in the heart of Jundiaí.
+
+But wait, there's more! 🎉 I'm not just confined to the classroom – I'm a perpetual learner, always seeking to level up. 📚 You'll often find me in the virtual corridors of online courses, absorbing knowledge like a sponge and diving deep into the wonders of programming languages.
+
+Speaking of languages, have you met my two BFFs? 🐍🤝 Python and I go way back, and we're practically inseparable. JavaScript? Oh, we're like the dynamic duo of the coding world! These languages are my trusty companions, my creative outlets, and my playgrounds of innovation.
+
+And here's a little secret: I'm addicted to growth. 🌱 Learning is my rocket fuel, propelling me forward in this thrilling expedition of knowledge. So, buckle up, because I'm an eternal student – always hungry for more, forever curious, and fueled by an unquenchable thirst for mastery! 🔥🔥</h5>
 <br>
 <h2 align="left"> 📷 Follow me on Social Medias</h2>
 <br>
