@@ -35,9 +35,9 @@ And here's a little secret: I'm addicted to growth. 🌱 Learning is my rocket f
 <h2 align="left"> 🛠 Progamming Languages Knowledge</h2>  
 
 <div align="center">
-  <img src="https://github.com/GustavoK1/GuKlinger/assets/36191144/0cab0e8e-ddd5-42d1-b53f-3677ce466d2f.png" width="51px" />
-  <img src="https://github.com/GustavoK1/GuKlinger/assets/36191144/add59589-f6d4-42b9-92b6-1a6211a0755f.png" width="51px" />
-  <img src="https://github.com/GustavoK1/GuKlinger/assets/36191144/d7e14016-fed6-4ee7-bc37-27026172ac58.png" width="44px" />
-  <img src="https://github.com/GustavoK1/GuKlinger/assets/36191144/606d710e-5348-40b2-9a31-052214431807.png" width="45px" />
-  <img src="https://github.com/GustavoK1/GuKlinger/assets/36191144/fa5085b9-fb83-4bab-ba1d-fa84bf48bf93.png" width="48px" />
+  <img src="https://github.com/GuKlinger/GuKlinger/assets/36191144/0cab0e8e-ddd5-42d1-b53f-3677ce466d2f.png" width="51px" />
+  <img src="https://github.com/GuKlinger/GuKlinger/assets/36191144/add59589-f6d4-42b9-92b6-1a6211a0755f.png" width="51px" />
+  <img src="https://github.com/GuKlinger/GuKlinger/assets/36191144/d7e14016-fed6-4ee7-bc37-27026172ac58.png" width="44px" />
+  <img src="https://github.com/GuKlinger/GuKlinger/assets/36191144/606d710e-5348-40b2-9a31-052214431807.png" width="45px" />
+  <img src="https://github.com/GuKlinger/GuKlinger/assets/36191144/fa5085b9-fb83-4bab-ba1d-fa84bf48bf93.png" width="48px" />
  </div>
