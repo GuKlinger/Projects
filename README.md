@@ -4,6 +4,8 @@
 <img src="https://komarev.com/ghpvc/?username=GuKlinger&style=flat-square&color=blue" alt=""/>
 </div>
 
+Samuca Farah
+
   <h5>Hey there, awesome folks! 🚀 I'm Gustavo Klinger, and I'm on a journey through the captivating realm of technological sciences! 💡 My grand goal? To evolve into a skilled developer extraordinaire! 💻🖱️ Currently, I'm immersing myself in the world of IT Management at the illustrious FATEC ARY FOSSEN in the heart of Jundiaí.
 
 But wait, there's more! 🎉 I'm not just confined to the classroom – I'm a perpetual learner, always seeking to level up. 📚 You'll often find me in the virtual corridors of online courses, absorbing knowledge like a sponge and diving deep into the wonders of programming languages.
