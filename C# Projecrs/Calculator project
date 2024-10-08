@@ -1,0 +1,45 @@
+using System;
+using System.Security.Cryptography;
+using System.Xml.XPath;
+
+namespace calculator
+{
+    internal class Program
+    {
+        private static void Main(string[] args)
+        {
+            Console.WriteLine("Digite o primeiro valor: ");
+            float firstValue = Convert.ToSingle(Console.ReadLine());
+
+            Console.WriteLine("Digite o segundo valor: ");
+            float secondValue = Convert.ToSingle(Console.ReadLine());
+
+            Console.WriteLine("Digite:\r\r 1 - Soma \r\r 2 - subtração \r\r 3 - multiplicação \r\r 4 - divisão");
+            int operandSelection = Convert.ToInt32(Console.ReadLine());
+
+            float result = 0;
+
+            if (operandSelection == 1)
+            {
+                result = (long)(firstValue + secondValue);
+            }
+
+            else if (operandSelection == 2)
+            {
+                result = (long)(firstValue - secondValue);
+            }
+
+            else if (operandSelection == 3)
+            {
+                result = (long)(firstValue * secondValue);
+            }
+
+            else
+            {
+                result = (long)(firstValue / secondValue);
+            }
+
+            Console.WriteLine("O resultado é: " + result);
+        }
+    }
+}
