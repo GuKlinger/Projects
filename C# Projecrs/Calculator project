@@ -9,10 +9,10 @@ namespace calculator
         private static void Main(string[] args)
         {
             Console.WriteLine("Digite o primeiro valor: ");
-            float firstValue = Convert.ToSingle(Console.ReadLine());
+            float firstValue = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Digite o segundo valor: ");
-            float secondValue = Convert.ToSingle(Console.ReadLine());
+            float secondValue = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Digite:\r\r 1 - Soma \r\r 2 - subtração \r\r 3 - multiplicação \r\r 4 - divisão");
             int operandSelection = Convert.ToInt32(Console.ReadLine());
