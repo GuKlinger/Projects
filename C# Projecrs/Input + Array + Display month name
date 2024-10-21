@@ -5,7 +5,7 @@ public class Program
     public static string MonthName(int num) 
     {
 			string[] monthNames = {"January", "February", "March", "April", "May", "June",
-								"July", "August", "September", "October", "November", "December"};
+					       "July", "August", "September", "October", "November", "December"};
             
             if (num < 1 || num > 12)
             {
