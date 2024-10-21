@@ -1,0 +1,29 @@
+using System;
+
+public class Program 
+{
+    public static string MonthName(int num) 
+    {
+			string[] monthNames = {"January", "February", "March", "April", "May", "June",
+								"July", "August", "September", "October", "November", "December"};
+            
+            if (num < 1 || num > 12)
+            {
+            	return "This number is not valid!";
+            }
+            
+            return monthNames[num - 1];                 
+    }
+    public static void Main(string[] args) 
+    {
+       Console.WriteLine("Please, select a number between 1 to 12: ");
+       string valueMonth = Console.ReadLine();
+     
+           if (int.TryParse(valueMonth, out int monthNumber))
+           {
+           string result = MonthName(monthNumber);
+           Console.WriteLine(result);
+           }
+     
+    }
+}
